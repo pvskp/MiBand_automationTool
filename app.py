@@ -1,7 +1,7 @@
 import os
 import signal
 from gi.repository import Notify
-from flask import Flask, request
+from flask import Flask
 
 Notify.init("Flask server")
 
@@ -53,7 +53,7 @@ def sleep_ps4():
 @app.route('/shutdown', methods=['GET'])
 def shutdown():
     
-    Notify.Notification.new("Desligando servidor").show()
+    Notify.Notification.new("Servidor desligado").show()
 
     os.kill(os.getpid(), signal.SIGTERM)
 
