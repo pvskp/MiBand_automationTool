@@ -1,8 +1,13 @@
 import os
 import signal
+from gi.repository import Notify
 from flask import Flask, request
 
+Notify.init("Flask server")
+
 app = Flask(__name__)
+
+Notify.Notification.new("Servidor Iniciado").show()
 
 """
 Abaixo estão os webhooks. Você deve modificar este arquivo conforme sua
@@ -47,6 +52,9 @@ def sleep_ps4():
 
 @app.route('/shutdown', methods=['GET'])
 def shutdown():
+    
+    Notify.Notification.new("Desligando servidor").show()
+
     os.kill(os.getpid(), signal.SIGTERM)
 
 def send_command(command):
@@ -59,4 +67,4 @@ def send_command(command):
     """
     with open('command.sh', 'w') as action:
         action.write(command)
-    os.system('./run.sh')
+    os.system('./run_command.sh')
