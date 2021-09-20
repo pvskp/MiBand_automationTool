@@ -1,6 +1,6 @@
 #! /usr/bin/zsh
 
-cd /home/$USER/automation/MiBand_automationTool
+cd /home/$USER/Server/
 
 # Personalize aqui como seu servidor vai iniciar.
 # Abrir o terminal, executar algum outro comando, etc.
