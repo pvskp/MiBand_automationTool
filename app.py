@@ -37,6 +37,7 @@ def open_spotify():
 
 @app.route('/isalive', methods=['GET'])
 def check_status():
+    Notify.Notification.new("Servidor está online!").show()
     return 'Servidor está no ar!'
 
 @app.route('/ps4wake', methods=['GET'])
